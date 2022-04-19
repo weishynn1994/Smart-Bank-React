@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../Constants';
 import CatalogueItem from './CatalogueItem';
+import { CartContext } from '../../contexts/CartContext';
 
 
 function RewardCataloguePage() {
@@ -48,14 +49,17 @@ function RewardCataloguePage() {
                     catalogueListLoaded ?
                         (
                             <div className="row" >
-                                <h6>Get the items from api</h6>
                                 {catalogueList.map(c => (
 
                                     <div className="col-md-4" key={c.id}>
 
                                         {/* 
                                           Call the Catalogue item component and pass the props into it.
-                                        */}
+                                        */
+                                        }
+                                         <CatalogueItem catalogue={c}/>
+                                         
+                                      
                                         
                                         <br></br>
                                     </div>

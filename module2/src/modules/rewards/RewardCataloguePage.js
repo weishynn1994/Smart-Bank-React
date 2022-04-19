@@ -59,6 +59,7 @@ function RewardCataloguePage() {
                                                     Call the Catalogue item component and pass the props into it.
                                                 */
                                             }
+                                            <CatalogueItem catalogue={c}/>
 
                                             <br></br>
                                         </div>

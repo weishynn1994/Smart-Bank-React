@@ -15,7 +15,7 @@ function App() {
 
         <LoginContextProvider>
           <CartContextProvider>
-            <AppHeader />
+          <AppHeader />
           </CartContextProvider>
         </LoginContextProvider>
 

@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import './CatalogueItem.css';
 import amazon from '../../images/amazon.png';
-import flipkart from '../../images/flipkart.jpg';
-import bookmyshow from '../../images/bookmyshow.png';
-import titan from '../../images/titan.jpg';
+import starbucks from '../../images/starbucks.png'; 
+import walmart from '../../images/walmart.png';
+import uber from '../../images/uber.jpg';
 import { LoginContext } from '../../contexts/LoginContext';
 import { CartContext } from '../../contexts/CartContext';
 
@@ -15,7 +15,7 @@ const CatalogueItem = ({ catalogue }) => {
         redeemptionAmount
     } = catalogue
 
-    const { loggedInUser, isLoggedIn } = useContext(LoginContext);
+    const { isLoggedIn } = useContext(LoginContext);
     const { addToCart } = useContext(CartContext);
 
     /**
@@ -30,12 +30,13 @@ const CatalogueItem = ({ catalogue }) => {
 
         if (item.match(/amazon/i) != null) {
             return amazon;
-        } else if (item.match(/flipkart/i) != null) {
-            return flipkart;
-        } else if (item.match(/bookmyshow/i) != null) {
-            return bookmyshow;
-        } else if (item.match(/titan/i) != null) {
-            return titan;
+        } 
+         else if (item.match(/uber/i) != null) {
+            return uber;
+        } else if (item.match(/walmart/i) != null) {
+            return walmart;
+        } else if (item.match(/starbucks/i) != null) {
+            return starbucks;
         }
 
     }
@@ -74,7 +75,7 @@ const CatalogueItem = ({ catalogue }) => {
                         {
                             isLoggedIn ? (
                                 <div>
-                                    <button className="btn btn-success cart-button" onClick={() =>addToCart(catalogue)}>
+                                    <button className="btn btn-success cart-button" onClick={performCartOperation}>
                                         <i className="fas fa-cart-plus"></i>&nbsp;
                                         Add to cart
                                  </button>
@@ -95,3 +96,4 @@ const CatalogueItem = ({ catalogue }) => {
 }
 
 export default CatalogueItem;
+

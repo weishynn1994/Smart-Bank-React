@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import './CatalogueItem.css';
 import amazon from '../../images/amazon.png';
 import uber from '../../images/uber.png';
 import walmart from '../../images/walmart.png';
 import starbucks from '../../images/starbucks.png';
+import { CartContext } from '../../../../module2/src/contexts/CartContext';
+
 
 const CatalogueItem = ({ catalogue }) => {
 
     // destructuring the props.
 
-
     /**
      * return the image of item
      * @param item 
      */
+     const { addToCart } = useContext(CartContext);
     const getItemImage = (item) => {
 
         /**
@@ -35,7 +37,9 @@ const CatalogueItem = ({ catalogue }) => {
     }
 
     const performAddToCart = (item) => {
-        console.log(item);
+        console.log(item)
+        item.preventDefault();
+        addToCart(catalogue);
     }
 
     return (
@@ -63,15 +67,17 @@ const CatalogueItem = ({ catalogue }) => {
                         <h6>
                             Redeemption Points : {catalogue.redeemptionPoint}
                         </h6><br />
-
+                    
+                        
                         <div>
                             {/* Add Action to cart button */}
-                            <button className="btn btn-success cart-button">
+                            <button className="btn btn-success cart-button" onClick={performAddToCart}>
                                 <i className="fas fa-cart-plus"></i>&nbsp;
                                 Add to cart
                             </button>
 
                         </div>
+                    
                     </div>
                 </div>
             </div>

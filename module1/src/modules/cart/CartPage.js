@@ -1,20 +1,25 @@
-import React from 'react';
+
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { LoginContext } from '../../contexts/LoginContext';
+import { CartContext } from '../../contexts/CartContext';
 import CartItems from './CartItems';
 
 function CartPage() {
 
-    const isLoggedIn = false;
-    const cartItems = [];
+    // const isLoggedIn = false;
+    // const cartItems = [];
+    const { isLoggedIn, loggedInUser } = useContext(LoginContext);
+    const { cartItems } = useContext(CartContext);
 
-    const loggedInUser = {
-        ccNumber: 0,
-        ccName: "Dummy Card",
-        userName: "Guest User",
-        userId: "guest",
-        availableRedeemPoints: 0,
-        totalRewardsGained: 0
-    }
+    // const loggedInUser = {
+    //     ccNumber: 0,
+    //     ccName: "Dummy Card",
+    //     userName: "Guest User",
+    //     userId: "guest",
+    //     availableRedeemPoints: 0,
+    //     totalRewardsGained: 0
+    // }
 
     return (
         <div className="container">

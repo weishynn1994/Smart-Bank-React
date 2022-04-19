@@ -1,17 +1,17 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useContext} from 'react';
+import {Routes, Route, Link, useHistory } from 'react-router-dom';
 import '../styles/AppHeader.css'
 import AppRoute from '../AppRoutes';
+import { CartContext } from '../contexts/CartContext';
+
 
 function AppHeader() {
 
-    const cartCount = 0;
     let history = useHistory();
+    const { cartCount } = useContext(CartContext);
     const logoutUser = () => {
-        /**
-         * Write logic to route to login page on clicking logout button.
-         */
-        history.push("/login");
+      
+        history.push("/logout");
     }
 
     return (
@@ -24,16 +24,16 @@ function AppHeader() {
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item navbar-link active">
-                            {/* Provide Homepage routing link */}
-                            <Link className="nav-link" to="#">
+                        <li className="nav-item navbar-link active"> 
+                           {/* Provide Homepage routing link */}
+                            <Link className="nav-link" to="/">
                                 <i className="fas fa-home"></i>
                                 <span className="sr-only">(current)</span>
                             </Link>
                         </li>
                         <li className="nav-item navbar-link">
                             {/* Provide Rewards routing link */}
-                            <Link className="btn btn-success" to="#">
+                            <Link className="btn btn-success" to="/rewards">
                                 Rewards Catalogue
                             </Link>
 
@@ -45,7 +45,7 @@ function AppHeader() {
 
                     <div className="header-right">
                         {/* Provide cart routing link */}
-                        <Link type="button" className="btn btn-success" to="#">
+                        <Link type="button" className="btn btn-success" to="/cart">
                             <i className="fas fa-shopping-cart" />&nbsp; My Cart &nbsp;
                             <span className="badge badge-light">
                                 {cartCount}
@@ -73,9 +73,9 @@ function AppHeader() {
             {/* 
                 Routing configuration to different components
             */}
+            <AppRoute/>
 
-            <AppRoute />
-
+            
         </div>
     );
 
