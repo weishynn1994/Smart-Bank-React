@@ -8,7 +8,7 @@ import { LoginContext } from "../contexts/LoginContext";
 function AppHeader() {
   const loginContext = useContext(LoginContext);
   const {isLoggedIn} = useContext(LoginContext);
-  console.log(isLoggedIn);
+  
 
   let history = useHistory();
   const { cartCount } = useContext(CartContext);

@@ -4,10 +4,8 @@ import { LoginContext } from "../contexts/LoginContext";
 import { Link } from "react-router-dom";
 
 function Homepage() {
-  const isLoggedIn = useContext(LoginContext);
+  const {isLoggedIn} = useContext(LoginContext);
   const loginContext = useContext(LoginContext);
-  console.log(loginContext);
-
   // const loggedInUser = {
   //     ccNumber: 0,
   //     ccName: "Dummy Card",
@@ -47,7 +45,7 @@ function Homepage() {
             </table>
           </div>
         </div>
-      ) : (
+      ):(
         <div className="mt-5">
           Please Sign in to redeem your points. &nbsp; &nbsp;
           <Link className="btn btn-primary" to="/login">
